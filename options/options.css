@@ -1,0 +1,26 @@
+:root { color-scheme: light dark; --fundo: #f6f7fb; --cartao: #fff; --texto: #1d2030; --sutil: #6b7085; --borda: #dfe2ec; --primaria: #5b4bdb; --primaria-texto: #fff; --ok: #1a7f37; --erro: #b42318; }
+@media (prefers-color-scheme: dark) {
+  :root { --fundo: #15161c; --cartao: #1f2029; --texto: #e8e9f0; --sutil: #9a9db0; --borda: #33354a; --primaria: #8b7dff; --primaria-texto: #11111a; --ok: #6fdc8c; --erro: #ff8a80; }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 15px/1.55 system-ui, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 24px 20px 40px; }
+h1 { display: flex; gap: 10px; align-items: center; font-size: 22px; }
+h2 { font-size: 16px; margin: 0 0 6px; }
+section { background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 16px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px; }
+label { font-weight: 600; font-size: 14px; margin-top: 6px; }
+input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 8px; background: var(--fundo); color: var(--texto); font: inherit; }
+.linha { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.linha input { flex: 1; }
+.btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--borda); background: var(--cartao); color: var(--texto); font: inherit; font-weight: 600; cursor: pointer; }
+.btn.primario { background: var(--primaria); color: var(--primaria-texto); border-color: var(--primaria); }
+.btn:disabled { opacity: .6; cursor: wait; }
+.sutil { color: var(--sutil); font-size: 13px; margin: 0; }
+.ok { color: var(--ok); font-weight: 600; }
+.erro { color: var(--erro); font-weight: 600; }
+.acoes { margin-top: 4px; }
+.rodape { margin-top: 18px; }
+code, kbd { background: var(--borda); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+.alerta { color: inherit; background: rgba(224,168,0,.15); border-radius: 8px; padding: 8px 10px; }
+a { color: var(--primaria); }

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tutor IA — Opções</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1><img src="../icons/icon48.png" alt="" width="32" height="32" /> Tutor IA — Opções</h1>
+
+      <form id="form" autocomplete="off">
+        <section>
+          <h2>Provedor de IA</h2>
+          <select id="provedor">
+            <option value="gemini">Google Gemini — tem plano grátis</option>
+            <option value="anthropic">Anthropic Claude — pago por uso</option>
+          </select>
+          <p class="sutil">
+            Cada provedor tem a sua chave, guardada só neste navegador (<code>chrome.storage.local</code>), sem
+            sincronização, e enviada apenas para o servidor daquele provedor.
+          </p>
+        </section>
+
+        <section data-provedor="gemini">
+          <h2>Google Gemini</h2>
+          <p class="sutil">
+            Crie uma chave grátis em
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a>
+            (botão <em>Create API key</em>) e cole aqui.
+          </p>
+          <p class="sutil alerta">
+            ⚠ No plano grátis, o Google pode usar o conteúdo enviado (as perguntas e as respostas) para melhorar os
+            produtos dele. Não envie dados pessoais ou sigilosos.
+          </p>
+          <label for="geminiKey">Chave do Gemini</label>
+          <div class="linha">
+            <input id="geminiKey" type="password" placeholder="Cole a chave do AI Studio" spellcheck="false" />
+            <button type="button" class="btn btn-mostrar" data-alvo="geminiKey">Mostrar</button>
+          </div>
+          <label for="modeloGemini">Modelo (opcional)</label>
+          <input id="modeloGemini" type="text" list="lista-gemini" placeholder="vazio = padrão" spellcheck="false" />
+          <datalist id="lista-gemini"></datalist>
+        </section>
+
+        <section data-provedor="anthropic">
+          <h2>Anthropic Claude</h2>
+          <p class="sutil">
+            Crie uma chave em <strong>platform.claude.com</strong> → API Keys. O uso é cobrado na sua conta da Anthropic.
+          </p>
+          <label for="apiKey">Chave da Anthropic</label>
+          <div class="linha">
+            <input id="apiKey" type="password" placeholder="sk-ant-..." spellcheck="false" />
+            <button type="button" class="btn btn-mostrar" data-alvo="apiKey">Mostrar</button>
+          </div>
+          <label for="modelo">Modelo</label>
+          <select id="modelo"></select>
+        </section>
+
+        <section>
+          <h2>Raciocínio</h2>
+          <label for="esforco">Profundidade do raciocínio</label>
+          <select id="esforco">
+            <option value="low">Baixa — mais rápido</option>
+            <option value="medium">Média — recomendado</option>
+            <option value="high">Alta — questões difíceis (mais lento)</option>
+          </select>
+        </section>
+
+        <section>
+          <h2>Preferências</h2>
+          <label for="modoPadrao">Atalho Ctrl+Enter no painel</label>
+          <select id="modoPadrao">
+            <option value="dica">Começar com uma dica</option>
+            <option value="completo">Explicar tudo direto</option>
+          </select>
+          <label for="perfil">Sobre você (opcional — ajuda o tutor a adaptar as explicações)</label>
+          <textarea id="perfil" rows="3" maxlength="500" placeholder="Ex.: estudante de Análise e Desenvolvimento de Sistemas, sei Python e C em nível intermediário."></textarea>
+        </section>
+
+        <section>
+          <h2>Leitura das páginas</h2>
+          <p class="sutil">
+            Por padrão, o tutor só lê uma aba quando você clica no ícone da extensão, usa o menu de contexto ou o atalho.
+            Se preferir que o botão <em>Detectar na página</em> funcione sempre, libere a leitura de todos os sites.
+            A extensão só lê texto; ela nunca preenche, clica ou envia nada.
+          </p>
+          <div class="linha">
+            <button type="button" id="btn-permissao" class="btn">Liberar leitura em todos os sites</button>
+            <span id="estado-permissao" class="sutil"></span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Página de teste</h2>
+          <p class="sutil">
+            Cinco questões de exemplo (lógica, redes, segurança e Python, objetivas e dissertativa) para experimentar
+            o menu <em>Explicar com IA</em>, o modo dica e o botão <em>Detectar na página</em>.
+          </p>
+          <div class="linha">
+            <button type="button" id="btn-teste" class="btn">Abrir página de teste</button>
+          </div>
+        </section>
+
+        <div class="linha acoes">
+          <button type="submit" class="btn primario">Salvar</button>
+          <button type="button" id="btn-testar" class="btn">Testar conexão</button>
+          <span id="mensagem" role="status"></span>
+        </div>
+      </form>
+
+      <p class="sutil rodape">
+        Atalhos: <kbd>Alt+Shift+E</kbd> explica a seleção, <kbd>Alt+Shift+D</kbd> dá uma dica.
+        Para mudar, abra <code>opera://extensions/shortcuts</code>.
+      </p>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

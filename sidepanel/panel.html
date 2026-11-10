@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tutor IA</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <h1><img src="../icons/icon32.png" alt="" width="20" height="20" /> Tutor IA</h1>
+      <div class="topo-acoes">
+        <button type="button" id="btn-nova" class="btn-icone" title="Nova pergunta">Nova</button>
+        <button type="button" id="btn-opcoes" class="btn-icone" title="Opções">⚙</button>
+      </div>
+    </header>
+
+    <div id="aviso-chave" class="aviso" hidden>
+      Configure a chave de API do provedor escolhido para começar.
+      <button type="button" id="btn-config-chave" class="link">Abrir Opções</button>
+    </div>
+
+    <main>
+      <section class="cartao" id="secao-pergunta">
+        <label for="pergunta" class="rotulo">Pergunta</label>
+        <textarea
+          id="pergunta"
+          rows="6"
+          placeholder="Selecione a pergunta na página e use o botão direito → &quot;Explicar com IA&quot;, clique em &quot;Detectar na página&quot; ou cole o texto aqui (inclua as alternativas)."
+        ></textarea>
+        <div class="linha">
+          <button type="button" id="btn-detectar" class="btn secundario">Detectar na página</button>
+          <span id="origem" class="sutil"></span>
+        </div>
+        <div class="linha acoes-principais">
+          <button type="button" id="btn-dica" class="btn">💡 Me dê uma dica</button>
+          <button type="button" id="btn-completo" class="btn primario">📖 Explicar tudo</button>
+        </div>
+      </section>
+
+      <section id="conversa" aria-live="polite"></section>
+
+      <div id="status" class="status" hidden>
+        <span class="girando" aria-hidden="true"></span>
+        <span id="status-texto">Pensando…</span>
+        <button type="button" id="btn-parar" class="link">Parar</button>
+      </div>
+
+      <section class="cartao" id="secao-seguir" hidden>
+        <div class="linha" id="acoes-dica" hidden>
+          <button type="button" id="btn-mais-dica" class="btn">💡 Mais uma dica</button>
+          <button type="button" id="btn-revelar" class="btn primario">📖 Mostrar explicação completa</button>
+        </div>
+
+        <details id="det-tentativa">
+          <summary>✍️ Conferir meu raciocínio</summary>
+          <textarea id="tentativa" rows="4" placeholder="Escreva qual resposta você acha que é e por quê. O tutor avalia o seu raciocínio."></textarea>
+          <button type="button" id="btn-avaliar" class="btn">Avaliar meu raciocínio</button>
+        </details>
+
+        <label for="duvida" class="rotulo">Tem outra dúvida sobre isso?</label>
+        <div class="linha">
+          <input id="duvida" type="text" placeholder="Ex.: por que a alternativa C não serve?" />
+          <button type="button" id="btn-perguntar" class="btn">Perguntar</button>
+        </div>
+      </section>
+
+      <p class="rodape">
+        O tutor explica; quem responde é você. Ele nunca preenche, marca ou envia nada na página.
+        <span id="uso" class="sutil"></span>
+      </p>
+    </main>
+
+    <script type="module" src="panel.js"></script>
+  </body>
+</html>

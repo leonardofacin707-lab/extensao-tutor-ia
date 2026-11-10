@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Tutor IA — Explica Questões",
+  "short_name": "Tutor IA",
+  "version": "1.1.0",
+  "description": "Tutor de estudos: explica perguntas e alternativas com IA (Google Gemini ou Claude). Não responde nem preenche nada por você.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Abrir o Tutor IA",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/panel.html"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.anthropic.com/*"
+  ],
+  "commands": {
+    "explicar-selecao": {
+      "suggested_key": {
+        "default": "Alt+Shift+E"
+      },
+      "description": "Explicar o texto selecionado"
+    },
+    "dica-selecao": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Pedir uma dica sobre o texto selecionado"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

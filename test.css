@@ -1,0 +1,23 @@
+:root { color-scheme: light dark; --fundo: #f6f7fb; --cartao: #fff; --texto: #1d2030; --sutil: #6b7085; --borda: #dfe2ec; --primaria: #5b4bdb; --codigo: #f0f1f6; }
+@media (prefers-color-scheme: dark) {
+  :root { --fundo: #15161c; --cartao: #1f2029; --texto: #e8e9f0; --sutil: #9a9db0; --borda: #33354a; --primaria: #8b7dff; --codigo: #2a2b36; }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 16px/1.6 system-ui, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 24px; }
+h2 { font-size: 18px; margin: 0 0 8px; color: var(--primaria); }
+.aviso { margin-bottom: 4px; }
+.como { color: var(--sutil); margin-top: 0; }
+.monitor { display: inline-block; padding: 6px 10px; border: 1px dashed var(--borda); border-radius: 8px; font-size: 14px; color: var(--sutil); }
+.questao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 18px; margin: 18px 0; }
+.questao label { display: block; padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+.questao label:hover { background: var(--fundo); }
+code { background: var(--codigo); padding: 1px 5px; border-radius: 4px; font-family: Consolas, "Cascadia Code", monospace; font-size: 14px; }
+pre { background: var(--codigo); padding: 12px; border-radius: 8px; overflow-x: auto; }
+pre code { padding: 0; background: none; }
+textarea { width: 100%; padding: 10px; border: 1px solid var(--borda); border-radius: 8px; background: var(--fundo); color: var(--texto); font: inherit; }
+.dica-uso { font-size: 14px; color: var(--sutil); }
+#enviar { padding: 10px 18px; border-radius: 8px; border: none; background: var(--primaria); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.resultado { font-weight: 600; }

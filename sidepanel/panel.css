@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light dark;
+  --fundo: #f6f7fb;
+  --cartao: #ffffff;
+  --texto: #1d2030;
+  --sutil: #6b7085;
+  --borda: #dfe2ec;
+  --primaria: #5b4bdb;
+  --primaria-texto: #ffffff;
+  --destaque: #f1efff;
+  --codigo: #f0f1f6;
+  --erro: #b42318;
+  --erro-fundo: #fdecea;
+  --aviso-fundo: #fff7e0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #15161c;
+    --cartao: #1f2029;
+    --texto: #e8e9f0;
+    --sutil: #9a9db0;
+    --borda: #33354a;
+    --primaria: #8b7dff;
+    --primaria-texto: #11111a;
+    --destaque: #2a2840;
+    --codigo: #2a2b36;
+    --erro: #ff8a80;
+    --erro-fundo: #3a1f1f;
+    --aviso-fundo: #3a3220;
+  }
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  font: 14px/1.55 system-ui, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+.topo {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; background: var(--cartao); border-bottom: 1px solid var(--borda);
+}
+.topo h1 { margin: 0; font-size: 16px; display: flex; gap: 8px; align-items: center; }
+.topo-acoes { display: flex; gap: 6px; }
+main { padding: 12px 14px 24px; display: flex; flex-direction: column; gap: 12px; }
+
+.cartao {
+  background: var(--cartao); border: 1px solid var(--borda); border-radius: 10px;
+  padding: 12px; display: flex; flex-direction: column; gap: 10px;
+}
+.rotulo { font-weight: 600; font-size: 13px; }
+textarea, input[type="text"] {
+  width: 100%; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 8px;
+  background: var(--fundo); color: var(--texto); font: inherit; resize: vertical;
+}
+textarea:focus, input:focus { outline: 2px solid var(--primaria); outline-offset: -1px; }
+.linha { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.linha input { flex: 1; min-width: 140px; }
+.acoes-principais .btn { flex: 1; }
+
+.btn {
+  padding: 8px 12px; border-radius: 8px; border: 1px solid var(--borda);
+  background: var(--cartao); color: var(--texto); font: inherit; font-weight: 600; cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--primaria); }
+.btn.primario { background: var(--primaria); color: var(--primaria-texto); border-color: var(--primaria); }
+.btn.secundario { font-weight: 500; padding: 6px 10px; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.btn-icone {
+  border: 1px solid var(--borda); background: transparent; color: var(--texto);
+  border-radius: 6px; padding: 3px 8px; cursor: pointer; font: inherit;
+}
+.link { background: none; border: none; color: var(--primaria); cursor: pointer; font: inherit; text-decoration: underline; padding: 0; }
+.sutil { color: var(--sutil); font-size: 12px; }
+
+.aviso { margin: 12px 14px 0; padding: 10px 12px; border-radius: 8px; background: var(--aviso-fundo); }
+
+#conversa { display: flex; flex-direction: column; gap: 12px; }
+.turno-usuario {
+  align-self: flex-end; max-width: 90%; background: var(--destaque);
+  border-radius: 10px 10px 2px 10px; padding: 6px 10px; font-size: 13px; white-space: pre-wrap;
+}
+.turno-ia { background: var(--cartao); border: 1px solid var(--borda); border-radius: 10px; padding: 4px 14px; overflow-wrap: anywhere; }
+.turno-ia.dica { border-left: 4px solid #e0a800; }
+.turno-ia.erro { background: var(--erro-fundo); color: var(--erro); border-color: transparent; padding: 10px 14px; }
+.turno-ia h2, .turno-ia h3, .turno-ia h4 { font-size: 15px; margin: 14px 0 6px; }
+.turno-ia h2 { color: var(--primaria); }
+.turno-ia p { margin: 8px 0; }
+.turno-ia ul, .turno-ia ol { padding-left: 22px; margin: 6px 0; }
+.turno-ia li { margin: 3px 0; }
+.turno-ia code { background: var(--codigo); padding: 1px 5px; border-radius: 4px; font-family: Consolas, "Cascadia Code", monospace; font-size: 12.5px; }
+.turno-ia pre { background: var(--codigo); padding: 10px; border-radius: 8px; overflow-x: auto; }
+.turno-ia pre code { background: none; padding: 0; }
+.turno-ia blockquote { margin: 8px 0; padding-left: 10px; border-left: 3px solid var(--borda); color: var(--sutil); }
+.turno-ia .meta { display: flex; justify-content: space-between; gap: 8px; margin: 8px 0; }
+.cursor::after { content: "▍"; animation: piscar 1s steps(2) infinite; }
+@keyframes piscar { 50% { opacity: 0; } }
+
+.status { display: flex; align-items: center; gap: 8px; color: var(--sutil); font-size: 13px; }
+.girando {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--borda); border-top-color: var(--primaria); animation: girar .8s linear infinite;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+
+details summary { cursor: pointer; font-weight: 600; font-size: 13px; }
+details[open] { display: flex; flex-direction: column; gap: 8px; }
+.rodape { font-size: 12px; color: var(--sutil); text-align: center; margin: 4px 0 0; }

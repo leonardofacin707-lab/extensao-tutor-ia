@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página de teste — Tutor IA</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Lista de exercícios — Análise e Desenvolvimento de Sistemas</h1>
+        <p class="aviso">
+          <strong>Página de teste do Tutor IA.</strong> Use-a para experimentar a extensão:
+        </p>
+        <ol class="como">
+          <li>Selecione o enunciado <em>e</em> as alternativas de uma questão, clique com o botão direito e escolha
+            <strong>Explicar com IA</strong> ou <strong>Só uma dica (sem resposta)</strong>.</li>
+          <li>Ou abra o painel (ícone da extensão), role até deixar uma questão no meio da tela e clique em
+            <strong>Detectar na página</strong>.</li>
+          <li>Marque a sua resposta você mesmo. O indicador abaixo mostra que a extensão não marca nem envia nada.</li>
+        </ol>
+        <p id="monitor" class="monitor">Alternativas marcadas: 0 · Envios: 0</p>
+      </header>
+
+      <form id="prova">
+        <section class="questao" id="q1">
+          <h2>Questão 1 — Lógica</h2>
+          <p>Considere <code>A = verdadeiro</code>, <code>B = falso</code> e <code>C = verdadeiro</code>.
+            Qual é o valor da expressão <code>(A E B) OU (NÃO B E C)</code>?</p>
+          <label><input type="radio" name="q1" value="a" /> a) Verdadeiro, porque <code>A E B</code> é verdadeiro.</label>
+          <label><input type="radio" name="q1" value="b" /> b) Falso, porque <code>B</code> é falso.</label>
+          <label><input type="radio" name="q1" value="c" /> c) Verdadeiro, porque <code>NÃO B E C</code> é verdadeiro.</label>
+          <label><input type="radio" name="q1" value="d" /> d) Indefinido, pois falta o valor de uma variável.</label>
+        </section>
+
+        <section class="questao" id="q2">
+          <h2>Questão 2 — Redes de computadores</h2>
+          <p>Uma rede usa o endereço <code>192.168.10.0/26</code>. Quantos endereços de host
+            <strong>utilizáveis</strong> existem em cada sub-rede?</p>
+          <label><input type="radio" name="q2" value="a" /> a) 64</label>
+          <label><input type="radio" name="q2" value="b" /> b) 62</label>
+          <label><input type="radio" name="q2" value="c" /> c) 30</label>
+          <label><input type="radio" name="q2" value="d" /> d) 254</label>
+          <label><input type="radio" name="q2" value="e" /> e) 126</label>
+        </section>
+
+        <section class="questao" id="q3">
+          <h2>Questão 3 — Segurança da informação</h2>
+          <p>Um sistema monta consultas assim:</p>
+          <pre><code>sql = "SELECT * FROM usuarios WHERE login = '" + login + "'"</code></pre>
+          <p>Qual é a forma mais adequada de evitar <strong>SQL Injection</strong> nesse código?</p>
+          <label><input type="radio" name="q3" value="a" /> a) Criptografar o banco de dados inteiro.</label>
+          <label><input type="radio" name="q3" value="b" /> b) Usar consultas parametrizadas (prepared statements).</label>
+          <label><input type="radio" name="q3" value="c" /> c) Esconder as mensagens de erro do usuário.</label>
+          <label><input type="radio" name="q3" value="d" /> d) Usar HTTPS na comunicação com o servidor.</label>
+        </section>
+
+        <section class="questao" id="q4">
+          <h2>Questão 4 — Python</h2>
+          <p>Qual é a saída do programa abaixo?</p>
+          <pre><code>def adiciona(item, lista=[]):
+    lista.append(item)
+    return lista
+
+print(adiciona(1))
+print(adiciona(2))</code></pre>
+          <label><input type="radio" name="q4" value="a" /> a) <code>[1]</code> e depois <code>[2]</code></label>
+          <label><input type="radio" name="q4" value="b" /> b) <code>[1]</code> e depois <code>[1, 2]</code></label>
+          <label><input type="radio" name="q4" value="c" /> c) <code>[1, 2]</code> e depois <code>[1, 2]</code></label>
+          <label><input type="radio" name="q4" value="d" /> d) Um erro, pois listas não podem ser valor padrão.</label>
+        </section>
+
+        <section class="questao" id="q5">
+          <h2>Questão 5 — Segurança (dissertativa)</h2>
+          <p>Explique a diferença entre <strong>criptografia simétrica</strong> e <strong>assimétrica</strong>.
+            Dê um exemplo de algoritmo de cada tipo e cite uma situação em que se usam as duas juntas
+            (por exemplo, no HTTPS).</p>
+          <textarea name="q5" rows="6" placeholder="Escreva sua resposta aqui (com suas palavras)."></textarea>
+          <p class="dica-uso">Dica de uso: em questões dissertativas, selecione o enunciado e use
+            <strong>Explicar com IA</strong>. Depois escreva a sua resposta e use <em>Conferir meu raciocínio</em> no painel.</p>
+        </section>
+
+        <button type="submit" id="enviar">Enviar respostas</button>
+        <p id="resultado" class="resultado" hidden></p>
+      </form>
+    </main>
+    <script type="module" src="test.js"></script>
+  </body>
+</html>
